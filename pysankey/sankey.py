@@ -52,7 +52,8 @@ def check_data_matches_labels(labels, data, side):
                 msg = "Labels: " + ",".join(labels) + "\n"
             if len(data) < 20:
                 msg += "Data: " + ",".join(data)
-            raise LabelMismatch('{0} labels and data do not match.{1}'.format(side, msg))
+            # raise LabelMismatch('{0} labels and data do not match.{1}'.format(side, msg)
+            print(LabelMismatch('WARNING: {0} labels and data do not match.{1}'.format(side, msg))
 
 
 def sankey(left, right, leftWeight=None, rightWeight=None, colorDict=None,
