@@ -38,7 +38,7 @@ class LabelMismatch(PySankeyException):
     pass
 
 
-def check_data_matches_labels(labels, data, side, fon):
+def check_data_matches_labels(labels, data, side):
     if len(labels) > 0:
         if isinstance(data, list):
             data = set(data)
