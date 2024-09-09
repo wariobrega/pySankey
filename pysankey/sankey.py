@@ -46,7 +46,7 @@ def check_data_matches_labels(labels, data, side):
             data = set(data.unique().tolist())
         if isinstance(labels, list):
             labels = set(labels)
-        if labels != data:
+        if not all(x in data for x in labels):
             msg = "\n"
             if len(labels) <= 20:
                 msg = "Labels: " + ",".join(labels) + "\n"
