@@ -116,13 +116,13 @@ def sankey(left, right, leftWeight=None, rightWeight=None, colorDict=None,
     if len(leftLabels) == 0:
         leftLabels = pd.Series(dataFrame.left.unique()).unique()
     else:
-        check_data_matches_labels(leftLabels, dataFrame['left'], 'left')
+        check_data_matches_labels(leftLabels, dataFrame['left'].unique(), 'left')
 
     # Identify right labels
     if len(rightLabels) == 0:
         rightLabels = pd.Series(dataFrame.right.unique()).unique()
     else:
-        check_data_matches_labels(rightLabels, dataFrame['right'], 'right')
+        check_data_matches_labels(rightLabels, dataFrame['right'].unique(), 'right')
     # If no colorDict given, make one
     if colorDict is None:
         colorDict = {}
