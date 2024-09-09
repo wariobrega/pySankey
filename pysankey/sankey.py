@@ -52,9 +52,7 @@ def check_data_matches_labels(labels, data, side, fon):
                 msg = "Labels: " + ",".join(labels) + "\n"
             if len(data) < 20:
                 msg += "Data: " + ",".join(data)
-            # raise LabelMismatch('{0} labels and data do not match.{1}'.format(side, msg)
-            print(LabelMismatch('WARNING: {0} labels and data do not match.{1}'.format(side, msg))
-
+            raise LabelMismatch('{0} labels and data do not match.{1}'.format(side, msg)
 
 def sankey(left, right, leftWeight=None, rightWeight=None, colorDict=None,
            leftLabels=None, rightLabels=None, aspect=4, rightColor=False,
@@ -124,7 +122,7 @@ def sankey(left, right, leftWeight=None, rightWeight=None, colorDict=None,
     if len(rightLabels) == 0:
         rightLabels = pd.Series(dataFrame.right.unique()).unique()
     else:
-        check_data_matches_labels(leftLabels, dataFrame['right'], 'right')
+        check_data_matches_labels(rightLabels, dataFrame['right'], 'right')
     # If no colorDict given, make one
     if colorDict is None:
         colorDict = {}
